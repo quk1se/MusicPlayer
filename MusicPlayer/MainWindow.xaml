@@ -1,0 +1,26 @@
+﻿<Window x:Class="MusicPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicPlayer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1096">
+    <Grid Height="880" VerticalAlignment="Top" Margin="10,10,0,0" Width="1080">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="35*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="551*"/>
+            <RowDefinition Height="349*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="PlayBtn" Content="Button" HorizontalAlignment="Left" Height="80" Margin="439,76,0,0" VerticalAlignment="Top" Width="80" Background="#00DDDDDD" BorderBrush="#00707070" Click="PlayBtn_Click" Grid.Row="1" Grid.Column="1"/>
+        <Slider HorizontalAlignment="Left" Margin="79,182,0,0" VerticalAlignment="Top" Width="800" Height="20" Foreground="Black" ValueChanged="Slider_ValueChanged" BorderBrush="Black" Background="Transparent" Grid.Row="1" Grid.Column="1"/>
+        <Button x:Name="NextBtn" Content="Button" HorizontalAlignment="Left" Height="80" Margin="635,76,0,0" VerticalAlignment="Top" Width="80" Background="#00DDDDDD" BorderBrush="#00707070" Click="NextBtn_Click" Grid.Row="1" Grid.Column="1"/>
+        <Button x:Name="BackBtn" Content="Button" HorizontalAlignment="Left" Height="80" Margin="240,76,0,0" VerticalAlignment="Top" Width="80" Background="#00DDDDDD" BorderBrush="#00707070" PreviewMouseLeftButtonDown="BackBtn_PreviewMouseLeftButtonDown" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock x:Name="MusicName" Height="150" Margin="109,162,168,0" TextWrapping="Wrap" Text="TextBlock" Width="750" VerticalAlignment="Top" TextAlignment="Center" FontFamily="Javanese Text" FontSize="48" FontWeight="Bold" Grid.Column="1"/>
+        <Button x:Name="RepeatBtn" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="109,91,0,0" Grid.Row="1" VerticalAlignment="Top" Height="50" Width="50" Background="#00DDDDDD" BorderBrush="#00707070" Click="RepeatBtn_Click"/>
+        <Button x:Name="RandomBtn" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Height="50" Margin="809,91,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50" Background="#00DDDDDD" BorderBrush="#00707070" Click="RandomBtn_Click"/>
+    </Grid>
+</Window>
