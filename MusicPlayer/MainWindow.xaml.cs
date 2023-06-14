@@ -174,5 +174,14 @@ namespace MusicPlayer
             }
         }
 
+        private void repeat10_Click(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Position -= TimeSpan.FromSeconds(10);
+        }
+
+        private void skip10_Click(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Position += TimeSpan.FromSeconds(10);
+        }
     }
 }

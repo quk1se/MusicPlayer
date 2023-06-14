@@ -21,7 +21,7 @@
         <TextBlock x:Name="MusicName" Height="150" Margin="109,162,168,0" TextWrapping="Wrap" Text="TextBlock" Width="750" VerticalAlignment="Top" TextAlignment="Center" FontFamily="Javanese Text" FontSize="48" FontWeight="Bold" Grid.Column="1"/>
         <Button x:Name="RepeatBtn" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="109,91,0,0" Grid.Row="1" VerticalAlignment="Top" Height="50" Width="50" Background="#00DDDDDD" BorderBrush="#00707070" Click="RepeatBtn_Click"/>
         <Button x:Name="RandomBtn" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Height="50" Margin="809,91,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50" Background="#00DDDDDD" BorderBrush="#00707070" Click="RandomBtn_Click"/>
-        <Button x:Name="repeat10" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Height="60" Margin="350,170,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" Background="#00CACACA" BorderBrush="#00707070"/>
-        <Button x:Name="skip10" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Height="60" Margin="545,170,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" Background="#00DDDDDD" BorderBrush="#00707070"/>
+        <Button x:Name="repeat10" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Height="60" Margin="350,170,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" Background="#00CACACA" BorderBrush="#00707070" Click="repeat10_Click"/>
+        <Button x:Name="skip10" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Height="60" Margin="545,170,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" Background="#00DDDDDD" BorderBrush="#00707070" Click="skip10_Click"/>
     </Grid>
 </Window>
