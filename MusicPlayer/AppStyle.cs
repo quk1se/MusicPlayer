@@ -141,6 +141,24 @@ namespace MusicPlayer
             RenderOptions.SetEdgeMode(image, EdgeMode.Aliased);
             parent.repeat10.Content = image;
         }
+        public void SetVolumeUpImg()
+        {
+            Image image = new Image();
+            image.Source = new BitmapImage(new Uri(@"D:\\itstep\\winforms\\MusicPLayer\\MusicPLayer\\btnsImg\\volumeUp.png", UriKind.RelativeOrAbsolute));
+            image.Stretch = Stretch.Uniform;
+            RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality);
+
+            parent.volumeUp.Source = image.Source;
+        }
+        public void SetVolumeDownImg()
+        {
+            Image image = new Image();
+            image.Source = new BitmapImage(new Uri(@"D:\\itstep\\winforms\\MusicPLayer\\MusicPLayer\\btnsImg\\volumeDown.png", UriKind.RelativeOrAbsolute));
+            image.Stretch = Stretch.Uniform;
+            RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality);
+
+            parent.volumeDown.Source = image.Source;
+        }
         public void ChangeMusicName()
         {
             parent.MusicName.Text = Path.GetFileNameWithoutExtension(musicFiles[musicIndex]);

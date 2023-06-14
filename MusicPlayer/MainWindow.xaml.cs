@@ -49,10 +49,15 @@ namespace MusicPlayer
             appStyle.SetNotShuffleButtonImg();
             appStyle.SetSkip10BtnImg();
             appStyle.SetRepeat10BtnImg();
+            appStyle.SetVolumeDownImg();
+            appStyle.SetVolumeUpImg();
+            volumeSlider.BorderBrush = Brushes.Black;
             PlayBtn.FocusVisualStyle = null;
             this.ResizeMode = ResizeMode.NoResize;
             this.Title = "Moseeefy";
             this.Icon = new BitmapImage(new Uri(@"D:\\itstep\\winforms\\MusicPLayer\\MusicPLayer\\btnsImg\\moseeefy.ico", UriKind.RelativeOrAbsolute));
+            volumeDown.Source = new BitmapImage(new Uri(@"D:\\itstep\\winforms\\MusicPLayer\\MusicPLayer\\btnsImg\\volumeDown.png", UriKind.RelativeOrAbsolute));
+            volumeUp.Source = new BitmapImage(new Uri(@"D:\\itstep\\winforms\\MusicPLayer\\MusicPLayer\\btnsImg\\volumeUp.png", UriKind.RelativeOrAbsolute));
         }
 
         private void PlayBtn_Click(object sender, RoutedEventArgs e)
@@ -182,6 +187,23 @@ namespace MusicPlayer
         private void skip10_Click(object sender, RoutedEventArgs e)
         {
             mediaPlayer.Position += TimeSpan.FromSeconds(10);
+        }
+
+        private void volumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            mediaPlayer.Volume = volumeSlider.Value / 1000;
+        }
+
+
+        private void volumeSlider_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Slider slider = (Slider)sender;
+
+            Point mousePos = e.GetPosition(slider);
+            double ratio = mousePos.X / slider.ActualWidth;
+            double newValue = ratio * (slider.Maximum - slider.Minimum) + slider.Minimum;
+
+            slider.Value = newValue;
         }
     }
 }
