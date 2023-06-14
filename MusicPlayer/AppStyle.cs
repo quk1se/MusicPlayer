@@ -84,7 +84,6 @@ namespace MusicPlayer
             RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality);
             RenderOptions.SetEdgeMode(image, EdgeMode.Aliased);
             parent.BackBtn.Content = image;
-            PlayBtnPosition = 0;
         }
         public void SetNextButtonImg()
         {
@@ -93,7 +92,6 @@ namespace MusicPlayer
             RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality);
             RenderOptions.SetEdgeMode(image, EdgeMode.Aliased);
             parent.NextBtn.Content = image;
-            PlayBtnPosition = 0;
         }
         public void SetRepeatButtonImg()
         {
@@ -102,7 +100,6 @@ namespace MusicPlayer
             RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality);
             RenderOptions.SetEdgeMode(image, EdgeMode.Aliased);
             parent.RepeatBtn.Content = image;
-            PlayBtnPosition = 0;
         }
         public void SetRepeatOneButtonImg()
         {
@@ -111,7 +108,6 @@ namespace MusicPlayer
             RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality);
             RenderOptions.SetEdgeMode(image, EdgeMode.Aliased);
             parent.RepeatBtn.Content = image;
-            PlayBtnPosition = 0;
         }
         public void SetShuffleButtonImg()
         {
@@ -120,7 +116,6 @@ namespace MusicPlayer
             RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality);
             RenderOptions.SetEdgeMode(image, EdgeMode.Aliased);
             parent.RandomBtn.Content = image;
-            PlayBtnPosition = 0;
         }
         public void SetNotShuffleButtonImg()
         {
@@ -129,11 +124,27 @@ namespace MusicPlayer
             RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality);
             RenderOptions.SetEdgeMode(image, EdgeMode.Aliased);
             parent.RandomBtn.Content = image;
-            PlayBtnPosition = 0;
+        }
+        public void SetSkip10BtnImg()
+        {
+            Image image = new Image();
+            image.Source = new BitmapImage(new Uri(@"D:\\itstep\\winforms\\MusicPLayer\\MusicPLayer\\btnsImg\\skip10.png"));
+            RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality);
+            RenderOptions.SetEdgeMode(image, EdgeMode.Aliased);
+            parent.skip10.Content = image;
+        }
+        public void SetRepeat10BtnImg()
+        {
+            Image image = new Image();
+            image.Source = new BitmapImage(new Uri(@"D:\\itstep\\winforms\\MusicPLayer\\MusicPLayer\\btnsImg\\repeat10.png"));
+            RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality);
+            RenderOptions.SetEdgeMode(image, EdgeMode.Aliased);
+            parent.repeat10.Content = image;
         }
         public void ChangeMusicName()
         {
             parent.MusicName.Text = Path.GetFileNameWithoutExtension(musicFiles[musicIndex]);
         }
+
     }
 }

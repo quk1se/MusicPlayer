@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation.Text;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -46,6 +47,8 @@ namespace MusicPlayer
             appStyle.ChangeMusicName();
             appStyle.SetRepeatButtonImg();
             appStyle.SetNotShuffleButtonImg();
+            appStyle.SetSkip10BtnImg();
+            appStyle.SetRepeat10BtnImg();
             PlayBtn.FocusVisualStyle = null;
             this.ResizeMode = ResizeMode.NoResize;
             this.Title = "Moseeefy";
@@ -82,14 +85,6 @@ namespace MusicPlayer
             }
         }
 
-        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            if (mediaPlayer != null)
-            {
-                mediaPlayer.Position = TimeSpan.FromSeconds(e.NewValue);
-            }
-        }
-
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
             tempPosition = appStyle.MusicIndex;
@@ -101,13 +96,14 @@ namespace MusicPlayer
                     appStyle.MusicIndex = randomTrack.Next(0, appStyle.MusicFiles.Length);
                 appStyle.ChangeMusicName();
             }
-            else
+            else 
             {
                 appStyle.MusicIndex += 1;
                 if (appStyle.MusicIndex == appStyle.MusicFiles.Length) appStyle.MusicIndex = 0;
                 appStyle.ChangeMusicName();
             }
             mediaPlayer.Open(new Uri(appStyle.musicFiles[appStyle.MusicIndex]));
+          
             mediaPlayer.Play();
 
         }
@@ -177,5 +173,6 @@ namespace MusicPlayer
                 appStyle.SetNotShuffleButtonImg();
             }
         }
+
     }
 }
