@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
@@ -42,20 +43,22 @@ namespace MusicPlayer
             appStyle = new AppStyle(this);
             appStyle.SetBackground();
             appStyle.SetPlayButtonImg();
-            appStyle.SetBackButtonImg();
-            appStyle.SetNextButtonImg();
             appStyle.ChangeMusicName();
-            appStyle.SetRepeatButtonImg();
-            appStyle.SetNotShuffleButtonImg();
-            appStyle.SetSkip10BtnImg();
-            appStyle.SetRepeat10BtnImg();
-            appStyle.SetVolumeDownImg();
-            appStyle.SetVolumeUpImg();
+            appStyle.SetButtonImg("back", BackBtn);
+            appStyle.SetButtonImg("next",NextBtn);
+            appStyle.SetButtonImg("repeat10", repeat10);
+            appStyle.SetButtonImg("repeat", RepeatBtn);
+            appStyle.SetButtonImg("shuffleNon", RandomBtn);
+            appStyle.SetButtonImg("skip10", skip10);
+            appStyle.SetButtonImg("folder", folderBtn);
+            appStyle.SetButtonImg("info", infoBtn);
+            appStyle.SetImages("volumeDown", volumeUp);
+            appStyle.SetImages("volumeUp", volumeUp);
             volumeSlider.BorderBrush = Brushes.Black;
             PlayBtn.FocusVisualStyle = null;
-            this.ResizeMode = ResizeMode.NoResize;
-            this.Title = "Moseeefy";
-            this.Icon = new BitmapImage(new Uri(@"D:\\itstep\\winforms\\MusicPLayer\\MusicPLayer\\btnsImg\\moseeefy.ico", UriKind.RelativeOrAbsolute));
+            ResizeMode = ResizeMode.NoResize;
+            Title = "Moseeefy";
+            Icon = new BitmapImage(new Uri(@"D:\\itstep\\winforms\\MusicPLayer\\MusicPLayer\\btnsImg\\moseeefy.ico", UriKind.RelativeOrAbsolute));
             volumeDown.Source = new BitmapImage(new Uri(@"D:\\itstep\\winforms\\MusicPLayer\\MusicPLayer\\btnsImg\\volumeDown.png", UriKind.RelativeOrAbsolute));
             volumeUp.Source = new BitmapImage(new Uri(@"D:\\itstep\\winforms\\MusicPLayer\\MusicPLayer\\btnsImg\\volumeUp.png", UriKind.RelativeOrAbsolute));
         }
@@ -156,12 +159,12 @@ namespace MusicPlayer
             if (appStyle.RepeatOnePosition == 0)
             {
                 appStyle.RepeatOnePosition = 1;
-                appStyle.SetRepeatOneButtonImg();
+                appStyle.SetButtonImg("repeatOne", RepeatBtn);
             }
             else
             {
                 appStyle.RepeatOnePosition = 0;
-                appStyle.SetRepeatButtonImg();
+                appStyle.SetButtonImg("repeat", RepeatBtn);
             }
         }
 
@@ -170,12 +173,12 @@ namespace MusicPlayer
             if (appStyle.ShufflePosition == 0)
             {
                 appStyle.ShufflePosition = 1;
-                appStyle.SetShuffleButtonImg();
+                appStyle.SetButtonImg("shuffle", RandomBtn);
             }
             else
             {
                 appStyle.ShufflePosition = 0;
-                appStyle.SetNotShuffleButtonImg();
+                appStyle.SetButtonImg("shuffleNon", RandomBtn);
             }
         }
 
@@ -204,6 +207,39 @@ namespace MusicPlayer
             double newValue = ratio * (slider.Maximum - slider.Minimum) + slider.Minimum;
 
             slider.Value = newValue;
+        }
+
+        private void folderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog
+            {
+                ValidateNames = false,
+                CheckFileExists = false,
+                CheckPathExists = true,
+                FileName = "Выберите папку"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                appStyle.SelectedFolder = System.IO.Path.GetDirectoryName(dialog.FileName);
+                appStyle.SetNewFolder();
+                mediaPlayer.Pause();
+                mediaPlayer.Position = TimeSpan.Zero;
+                appStyle.MusicIndex = 0;
+                appStyle.SetPlayButtonImg();
+                appStyle.ChangeMusicName();
+            }
+        }
+
+        private void infoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Info infoForm = new Info();
+            infoForm.ShowDialog();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
         }
     }
 }

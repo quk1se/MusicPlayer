@@ -7,4 +7,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="back2.png" />
+    <None Remove="background.png" />
+    <None Remove="folder.png" />
+    <None Remove="info_background.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="back2.png" />
+    <Resource Include="background.png" />
+    <Resource Include="folder.png" />
+    <Resource Include="info_background.png" />
+  </ItemGroup>
+
 </Project>

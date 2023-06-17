@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicPlayer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="1096">
+        Title="MainWindow" Height="900" Width="1096" Closing="Window_Closing">
     <Grid Height="880" VerticalAlignment="Top" Margin="10,10,0,0" Width="1080">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -26,5 +26,7 @@
         <Slider x:Name="volumeSlider" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="380,247,0,0" Grid.Row="1" VerticalAlignment="Top" Width="195" ValueChanged="volumeSlider_ValueChanged" Maximum="1000" PreviewMouseDown="volumeSlider_PreviewMouseDown"/>
         <Image x:Name="volumeDown" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="347,242,0,0" Grid.Row="1" VerticalAlignment="Top" Width="30"/>
         <Image x:Name="volumeUp" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="575,242,0,0" Grid.Row="1" VerticalAlignment="Top" Width="30"/>
+        <Button x:Name="folderBtn" Content="Button" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Background="#00DDDDDD" BorderBrush="#00707070" Click="folderBtn_Click"/>
+        <Button x:Name="infoBtn" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Height="50" Margin="947,10,0,0" VerticalAlignment="Top" Width="50" Background="#00DDDDDD" BorderBrush="#00707070" Click="infoBtn_Click"/>
     </Grid>
 </Window>
